@@ -1,11 +1,11 @@
-document.getElementById('phone-plus').addEventListener('click', function () {
-  const phoneInput = document.getElementById('phone-number');
-  let phoneNumber = parseInt(phoneInput.value);
-  phoneInput.value = phoneNumber + 1;
-});
-
-document.getElementById('phone-minus').addEventListener('click', function () {
-  const phoneInput = document.getElementById('phone-number');
-  let phoneNumber = parseInt(phoneInput.value);
-  phoneInput.value = phoneNumber - 1;
-});
+function calcPrice() {
+  const phonePrice = parseInt(document.getElementById('phone-price').innerText);
+  const casePrice = parseInt(document.getElementById('case-price').innerText);
+  const priceSub = casePrice + phonePrice;
+  const subTotal = document.getElementById('subtotal');
+  subTotal.innerText = priceSub;
+  const tax = document.getElementById('tax');
+  tax.innerText = priceSub / 10;
+  const total = document.getElementById('total');
+  total.innerText = priceSub + tax.innerText;
+}

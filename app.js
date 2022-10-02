@@ -13,6 +13,7 @@ function productUpdate(product, increasing, price, totalPrice) {
   const priceAmount = document.getElementById(totalPrice);
   const priceValue = parseInt(priceAmount.innerText);
   priceAmount.innerText = productNumber * price;
+  calcPrice();
 }
 
 /* Handle Phones */
@@ -34,3 +35,17 @@ document.getElementById('case-plus').addEventListener('click', function () {
 document.getElementById('case-minus').addEventListener('click', function () {
   productUpdate('case-number', false, 59, 'case-price');
 });
+
+/* Handle subtotal tax and total */
+
+function calcPrice() {
+  const phonePrice = parseInt(document.getElementById('phone-price').innerText);
+  const casePrice = parseInt(document.getElementById('case-price').innerText);
+  const priceSub = casePrice + phonePrice;
+  const subTotal = document.getElementById('subtotal');
+  subTotal.innerText = priceSub;
+  const tax = document.getElementById('tax');
+  tax.innerText = parseInt(priceSub / 10);
+  const total = document.getElementById('total');
+  total.innerText = priceSub + parseInt(tax.innerText);
+}
